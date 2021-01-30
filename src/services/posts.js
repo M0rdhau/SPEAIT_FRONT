@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3000/posts'
+const baseUrl = 'http://localhost:3001/api/posts'
 
 const createPost = async newPost => {
   const response = await axios.post(baseUrl, newPost)
@@ -17,8 +17,7 @@ const getAll = async () => {
 }
 
 const comment = async (post, comment) => {
-  const commentedPost = { ...post, comments: [ ...post.comments, comment ] }
-  const response = await axios.put(`${baseUrl}/${post.id}`, commentedPost)
+  const response = await axios.post(`${baseUrl}/${post.id}/comments`, comment)
   return response.data
 }
 

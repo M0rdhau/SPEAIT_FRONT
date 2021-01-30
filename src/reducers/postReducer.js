@@ -1,9 +1,5 @@
 import postService from '../services/posts'
 
-const generateId = () => {
-  return Math.floor(Math.random()*100000)
-}
-
 const postReducer = (state = [], action) => {
   switch (action.type)  {
     case 'POSTS_INIT':
@@ -49,12 +45,8 @@ export const initPosts = () => {
   }
 }
 
-export const commentPost = (post, text) => {
+export const commentPost = (post, comment) => {
   return async dispatch => {
-    const comment = {
-      id: generateId(),
-      data: text
-    }
     const newPost = await postService.comment(post, comment)
     dispatch({
       type: 'UPDATE',

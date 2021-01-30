@@ -19,27 +19,30 @@ function App() {
   }, [dispatch])
 
   const match = useRouteMatch('/posts/:id')
-  const post = match
-    ? posts.find(post => post.id === Number(match.params.id))
+
+  const post = (match && posts !== undefined)
+    ? posts.find(post => post.id === match.params.id)
     : null
 
   return (
-    <div>
+    <div className="mainBody">
       <header>
-        <div>
-          <Link style={padding} to='/'>home</Link>
-        </div>
-        <h1>Do AIs dream of hexadecimal sheep?</h1>
+        <nav>
+          <Link style={padding} to='/'><strong>Home</strong></Link>
+        </nav>
+        <h1>Does AI dream of Hexadecimal Sheep?</h1>
         <h4>A blog for SPEAIT course</h4>
       </header>
-      <Switch>
-        <Route path='/posts/:id'>
-          <Post post={ post } />
-        </Route>
-        <Route path='/'>
-          <PostList/>
-        </Route>
-      </Switch>
+      <main>
+        <Switch>
+          <Route path='/posts/:id'>
+            <Post post={ post } />
+          </Route>
+          <Route path='/'>
+            <PostList/>
+          </Route>
+        </Switch>
+      </main>
       <footer>
         For Tallinn university of Technology
       </footer>

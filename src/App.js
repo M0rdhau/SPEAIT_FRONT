@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { initPosts } from './reducers/postReducer'
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom'
 import Post from './components/Post'
-import Login from './components/Login'
+// import Login from './components/Login'
 import { initUser } from './reducers/userReducer'
 import PostForm from './components/PostForm'
+import rssImage from './images/Feed-icon.png'
 
 function App() {
   const dispatch = useDispatch()
@@ -33,8 +34,9 @@ function App() {
       <header>
         <nav>
           <Link style={padding} to='/'><strong>Home</strong></Link>
-          <Link style={padding} to='/createNew'><strong>New Post</strong></Link>
-          <Login />
+          {/*<Link style={padding} to='/createNew'><strong>New Post</strong></Link>*/}
+          <a href='/feed.rss' target="_blank"><img src={rssImage} width='28' height='28'/></a>
+          {/*<Login />*/}
         </nav>
         <h1>Does AI dream of Hexadecimal Sheep?</h1>
         <h4>A blog for SPEAIT course</h4>

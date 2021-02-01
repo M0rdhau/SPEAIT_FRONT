@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { commentPost } from '../reducers/postReducer'
+import { commentPost, initPosts } from '../reducers/postReducer'
 import marked from 'marked'
 
 const Post = ({ post } ) => {
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initPosts())
+  }, [dispatch])
 
   const putComment = async (event) => {
     event.preventDefault()
     const text = event.target.comment.value
     const author = event.target.author.value
+    event.target.author.value = ''
     event.target.comment.value = ''
     dispatch(commentPost(post, { text, author }))
   }
 
 
   if(post !== undefined){
-    console.log(post.comments)
     return (
       <div className="postBody">
         <div className="postTitles">

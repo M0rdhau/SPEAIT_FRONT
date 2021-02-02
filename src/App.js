@@ -8,6 +8,7 @@ import Post from './components/Post'
 import { initUser } from './reducers/userReducer'
 import PostForm from './components/PostForm'
 import rssImage from './images/Feed-icon.png'
+import sheepImage from './images/pider_sheep.png'
 
 function App() {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ function App() {
         <nav>
           <Link style={padding} to='/'><strong>Home</strong></Link>
           {/*<Link style={padding} to='/createNew'><strong>New Post</strong></Link>*/}
+          <Link to='/'><img src={sheepImage} width='128' height='128'/></Link>
           <a href='/feed.rss' target="_blank"><img src={rssImage} width='28' height='28'/></a>
           {/*<Login />*/}
         </nav>

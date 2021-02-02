@@ -9,6 +9,7 @@ import { initUser } from './reducers/userReducer'
 import PostForm from './components/PostForm'
 import rssImage from './images/Feed-icon.png'
 import sheepImage from './images/pider_sheep.png'
+import About from './components/About'
 
 function App() {
   const dispatch = useDispatch()
@@ -34,7 +35,10 @@ function App() {
     <div className="mainBody">
       <header>
         <nav>
-          <Link style={padding} to='/'><strong>Home</strong></Link>
+          <div className='actualNav'>
+            <Link style={padding} to='/'><strong>Home</strong></Link>
+            <Link style={padding} to='/about'><strong>About</strong></Link>
+          </div>
           {/*<Link style={padding} to='/createNew'><strong>New Post</strong></Link>*/}
           <Link to='/'><img src={sheepImage} width='128' height='128'/></Link>
           <a href='/feed.rss' target="_blank"><img src={rssImage} width='28' height='28'/></a>
@@ -45,6 +49,9 @@ function App() {
       </header>
       <main>
         <Switch>
+          <Route path='/about'>
+            <About/>
+          </Route>
           <Route path='/createNew' >
             <PostForm/>
           </Route>

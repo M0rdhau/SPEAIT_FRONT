@@ -26,7 +26,7 @@ const PostList = () => {
             <div className="postBody" key={post.id}>
               <h3>{post.title}</h3>
               <h5>{post.date}</h5>
-              <p>{postBody.substring(1)}... <Link to={`/posts/${post.id}`}>show more</Link></p>
+              <p>{postBody}... <Link to={`/posts/${post.id}`}>show more</Link></p>
             </div>
           )
         } )

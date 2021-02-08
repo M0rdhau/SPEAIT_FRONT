@@ -1,6 +1,6 @@
 :root {
     --main-color: #fff;
-    --background-color: #3b3b4f;
+    --bground-color: #3b3b4f;
     --mid-bg-color: #858591;
     --link-color: #dfdfe2;
 }
@@ -10,7 +10,7 @@ body {
     display:flex;
     justify-content: center;
     font-family: 'Courier new', monospace;
-    background-color: var(--background-color);
+    background-color: var(--bground-color);
 }
 
 .mainBody {
@@ -66,7 +66,8 @@ a {
 }
 
 .postForm textarea {
-    height: 50px;
+    min-height: 200px;
+    min-width: 400px;
 }
 
 .postComments {

@@ -3,5 +3,5 @@
 
 We are on [Heroku](oxbaa.herokuapp.com) now!
 
-### Master - Heroku branch
+### Production - Heroku branch
 ### Main - Admin page branch
